@@ -18,7 +18,7 @@
          </ul>
         <ul>
           <li><input type="search"></li>
-          <li><a href="entrance.html">Войти</a></li>            
+          <li><a href="login.html">Войти</a></li>            
           <li><a href="basket.html">Корзина</a></li>
         </ul>
       </nav>
@@ -179,7 +179,8 @@
       
       <section>
         <h2>Карта магазина мороженного «Gllacy Shop»</h2>
-           <!-- Здесь будет карта -->
+           <img src="img/i4.jpg" width="1200" height="430" alt="Rfhnf">
+           <!-- Здесь будет интерактивная карта -->
         <div>
            <p>Адрес главного офиса и офлайн-магазина:</p> 
            <p>ул. Большая Конюшенная 19/8, Санкт-Петербург</p> 
@@ -232,21 +233,41 @@
         </ul>
     </section> 
         
-
- 
     <section>
-      <h2>Личный кабинет</h2>
-      <!-- Здесь будет форма -->
-      <button type="button">Войти</button>
+      <h2 class="visually-hidden">Личный кабинет</h2>
+      <form action="https://echo.htmlacademy.ru" method="post">
+        <p>
+           <label for="user-login" class="visually-hidden">Логин</label>
+           <input id="user-login" type="email" name="login" placeholder="email@example.com">
+        </p>
+        <p>
+            <label for="user-password" class="visually-hidden">Пароль</label>
+            <input id="user-password" type="password" name="password" placeholder="••••••••">
+         </p>
+        <button type="submit">Войти</button>
       <p><a href="password">Забыли пароль?<a/></p>
-      <p><a href="registration">Регистрация<a/></p>        
+      <p><a href="registration">Регистрация<a/></p>  
+      </form>  
     </section>
         
     <section>
-      <h2>Обратная связь</h2>
-        <p>Мы обязательно Вам ответим</p> 
-      <!-- Здесь будет форма -->
-     </section> 
+      <h2 class="visually-hidden">Обратная связь</h2>
+      <p>Мы обязательно Вам ответим</p> 
+      <form action="https://echo.htmlacademy.ru" method="post">
+        <p>
+          <label for="user-name" class="visually-hidden">Имя Фамилия</label>
+          <input id="user-name" type="name" name="name" placeholder="Имя Фамилия">
+        </p>
+        <p>
+          <label for="user-e-mail" class="visually-hidden">E-mail</label>
+          <input id="user-e-mail" type="email" name="email" placeholder="email@example.com">
+        </p>
+        <p>
+          <textarea name="comment" id="comment-field" rows="6">В свободной форме</textarea>
+        </p>
+        <button type="submit">Отправить</button>
+      </form>
+    </section> 
 
   </body>
 </html>

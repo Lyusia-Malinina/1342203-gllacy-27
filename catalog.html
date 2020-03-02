@@ -42,7 +42,49 @@
       
       <section>
         <h2>Фильтр товаров</h2>
-        <!-- Здесь будет форма -->
+          <form method="get" action="https://echo.htmlacademy.ru">
+            <fieldset>
+              <legend>Сортировка:</legend>
+              <select name="year">
+                <option value="popular">По популярности</option>
+                <option value="price">По цене</option>
+              </select>
+            </fieldset>
+            <fieldset>
+              <label for="price">Цена: 100 руб. - 500 руб.</label>
+              <input type="range" id="price" name="price" min="100" max="500" step="10" >
+            </fieldset>
+            <fieldset>
+              <legend>Жирность:</legend>
+              <label>
+                <input type="radio" name="fat" value="0%">0% 
+              </label>
+              <label>
+                <input type="radio" name="fat" value="less10%" checked>до 10%
+              </label>
+              <label>
+                <input type="radio" name="fat" value="less30%">до 30% 
+              </label>
+              <label>
+                <input type="radio" name="fat" value="over30%">выше 30% 
+              </label>              
+            </fieldset>
+          <br>
+            <fieldset>
+              <legend>Наполнители:</legend>
+                <input type="checkbox" name="fillers" id="chocolate" checked>
+                <label for="chocolate">шоколадные</label>
+                <input type="checkbox" name="fillers" id="sugar" checked>
+                <label for="sugar">сахарные присыпки</label>
+                <input type="checkbox" name="fillers" id="fruits">
+                <label for="fruits">фрукты</label>
+                <input type="checkbox" name="fillers" id="syrups">
+                <label for="syrups">сиропы</label>
+                <input type="checkbox" name="fillers" id="jams">
+                <label for="jams">джемы</label>
+            </fieldset>
+          <button type="submit">Применить</button>
+        </form>      
       </section>
       
       <section>  

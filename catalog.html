@@ -2,7 +2,7 @@
 <html lang="ru">
   <head>
     <meta charset="utf-8">
-    <title>HTML Academy: Глейси</title>
+    <title>Магазин мороженного «Gllacy Shop»</title>
   </head>
   
   <body>
@@ -17,8 +17,13 @@
           <li><a href="about.html">О компании</a></li>
          </ul>
         <ul>
-          <li><input type="search"></li>
-          <li><a href="entrance.html">Войти</a></li>            
+          <li>      
+            <form action="https://echo.htmlacademy.ru/courses" method="get">
+              <label for="search" class="visually-hidden">Поиск</label>
+              <input type="search" id="search" name="search" placeholder="Крем-брюле">
+            </form>
+          </li>
+          <li><a href="login.html">Войти</a></li>            
           <li><a href="basket.html">Корзина</a></li>
         </ul>
       </nav>
@@ -37,7 +42,49 @@
       
       <section>
         <h2>Фильтр товаров</h2>
-        <!-- Здесь будет форма -->
+          <form method="get" action="https://echo.htmlacademy.ru">
+            <fieldset>
+              <legend>Сортировка:</legend>
+              <select name="year">
+                <option value="popular">По популярности</option>
+                <option value="price">По цене</option>
+              </select>
+            </fieldset>
+            <fieldset>
+              <label for="price">Цена: 100 руб. - 500 руб.</label>
+              <input type="range" id="price" name="price" min="100" max="500" step="10" >
+            </fieldset>
+            <fieldset>
+              <legend>Жирность:</legend>
+              <label>
+                <input type="radio" name="fat" value="0%">0% 
+              </label>
+              <label>
+                <input type="radio" name="fat" value="less10%" checked>до 10%
+              </label>
+              <label>
+                <input type="radio" name="fat" value="less30%">до 30% 
+              </label>
+              <label>
+                <input type="radio" name="fat" value="over30%">выше 30% 
+              </label>              
+            </fieldset>
+          <br>
+            <fieldset>
+              <legend>Наполнители:</legend>
+                <input type="checkbox" name="fillers" id="chocolate" checked>
+                <label for="chocolate">шоколадные</label>
+                <input type="checkbox" name="fillers" id="sugar" checked>
+                <label for="sugar">сахарные присыпки</label>
+                <input type="checkbox" name="fillers" id="fruits">
+                <label for="fruits">фрукты</label>
+                <input type="checkbox" name="fillers" id="syrups">
+                <label for="syrups">сиропы</label>
+                <input type="checkbox" name="fillers" id="jams">
+                <label for="jams">джемы</label>
+            </fieldset>
+          <button type="submit">Применить</button>
+        </form>      
       </section>
       
       <section>  
@@ -48,7 +95,7 @@
               <img src="img/i1.jpg" width="267" height="267" alt="Сливочное с апельсиновым джемом и цитрусовой стружкой">
             </a>
             <p>
-              <span>310</span> <span>₽/кг</span>
+              310 <span>₽/кг</span>
             </p>
             <h3>
               <a href="#">Сливочное с апельсиновым джемом и цитрусовой стружкой</a>
@@ -60,8 +107,7 @@
               <img src="img/i2.jpg" width="267" height="267" alt="Сливочно-кофейное с кусочками шоколада">
             </a>
             <p>
-              <span>380</span> 
-              <span>₽/кг</span>
+              380 <span>₽/кг</span>
             </p>
             <h3>
               <a href="#">Сливочно-кофейное с кусочками шоколада</a>
@@ -73,8 +119,7 @@
               <img src="img/i3.jpg" width="267" height="267" alt="Сливочно-клубничное с присыпкой из белого шоколада">
             </a>
             <p>
-              <span>355</span> 
-              <span>₽/кг</span>
+              355 <span>₽/кг</span>
             </p>
             <h3>
               <a href="#">Сливочно-клубничное с присыпкой из белого шоколада</a>
@@ -86,8 +131,7 @@
               <img src="img/i4.jpg" width="267" height="267" alt="Сливочное крем-брюле с карамельной подливкой">
             </a>
             <p>
-              <span>415</span> 
-              <span>₽/кг</span>
+              415 <span>₽/кг</span>
             </p>
             <h3>
               <a href="#">Сливочное крем-брюле с карамельной подливкой</a>
@@ -99,7 +143,7 @@
               <img src="img/i5.jpg" width="267" height="267" alt="Сливочное с брусничным джемом">
             </a>
             <p>
-              <span>325</span> <span>₽/кг</span>
+              325 <span>₽/кг</span>
             </p>
             <h3>
               <a href="#">Сливочное с брусничным джемом</a>
@@ -111,8 +155,7 @@
               <img src="img/i6.jpg" width="267" height="267" alt="Сливочно-черничное с цельными ягодами черники">
             </a>
             <p>
-              <span>410</span> 
-              <span>₽/кг</span>
+              410 <span>₽/кг</span>
             </p>
             <h3>
               <a href="#">Сливочно-черничное с цельными ягодами черники</a>
@@ -124,8 +167,7 @@
               <img src="img/i7.jpg" width="267" height="267" alt="Сливочно-лимонное с карамельной присыпкой">
             </a>
             <p>
-              <span>375</span> 
-              <span>₽/кг</span>
+              375 <span>₽/кг</span>
             </p>
             <h3>
               <a href="#">Сливочно-лимонное с карамельной присыпкой</a>
@@ -137,8 +179,7 @@
               <img src="img/i8.jpg" width="267" height="267" alt="Сливочное с шоколадной стружкой">
             </a>
             <p>
-              <span>320</span> 
-              <span>₽/кг</span>
+              320 <span>₽/кг</span>
             </p>
             <h3>
               <a href="#">Сливочное с шоколадной стружкой</a>
@@ -150,8 +191,7 @@
               <img src="img/i9.jpg" width="267" height="267" alt="Сливочно-ванильное с кусочками шоколада">
             </a>
             <p>
-              <span>440</span> 
-              <span>₽/кг</span>
+              440 <span>₽/кг</span>
             </p>
             <h3>
               <a href="#">Сливочно-ванильное с кусочками шоколада</a>
@@ -163,8 +203,7 @@
               <img src="img/i10.jpg" width="267" height="267" alt="Сливочноe с ментоловым сиропом">
             </a>
             <p>
-              <span>435</span> 
-              <span>₽/кг</span>
+              435 <span>₽/кг</span>
             </p>
             <h3>
               <a href="#">Сливочноe с ментоловым сиропом</a>
@@ -176,8 +215,7 @@
               <img src="img/i11.jpg" width="267" height="267" alt="Сливочное с кусочками черного шоколада">
             </a>
             <p>
-              <span>355</span> 
-              <span>₽/кг</span>
+              355 <span>₽/кг</span>
             </p>
             <h3>
               <a href="#">Сливочное с кусочками черного шоколада</a>
@@ -189,8 +227,7 @@
               <img src="img/i12.jpg" width="267" height="267" alt="Сливочное с мятным сиропом">
             </a>
             <p>
-              <span>420</span>
-              <span>₽/кг</span>
+              420 <span>₽/кг</span>
             </p>
             <h3>
               <a href="#">Сливочное с мятным сиропом</a>
@@ -249,23 +286,21 @@
     </section> 
         
     <section>
-      <h2>Поиск</h2>
-      <!-- Здесь будет форма -->
-     </section> 
- 
-    <section>
-      <h2>Личный кабинет</h2>
-      <!-- Здесь будет форма -->
-      <button type="button">Войти</button>
+      <h2 class="visually-hidden">Личный кабинет</h2>
+      <form action="https://echo.htmlacademy.ru" method="post">
+        <p>
+           <label for="user-login" class="visually-hidden">Логин</label>
+           <input id="user-login" type="email" name="login" placeholder="email@example.com">
+        </p>
+        <p>
+            <label for="user-password" class="visually-hidden">Пароль</label>
+            <input id="user-password" type="password" name="password" placeholder="••••••••">
+         </p>
+        <button type="submit">Войти</button>
       <p><a href="password">Забыли пароль?<a/></p>
-      <p><a href="registration">Регистрация<a/></p>        
+      <p><a href="registration">Регистрация<a/></p>  
+      </form>  
     </section>
-        
-    <section>
-      <h2>Обратная связь</h2>
-        <p>Мы обязательно Вам ответим</p> 
-      <!-- Здесь будет форма -->
-     </section> 
 
   </body>
 </html>

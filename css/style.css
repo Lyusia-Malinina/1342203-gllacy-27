@@ -1,0 +1,1809 @@
+﻿body {
+    margin: 0;
+    padding: 0;
+    background-color: #849d8f;
+    /*шрифт*/
+    font-family: "Roboto", "Arial", sans-serif;
+    font-size: 16px;
+    line-height: 22px;
+    color: #ffffff;
+    text-transform: none;
+}
+
+
+a {
+    text-decoration: underline;
+    color: #ffffff;
+}
+
+a:hover,
+a:focus {
+    color: #ffbc9e;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+.button {
+    /*шрифт*/
+    font: inherit;
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: bold;
+    color: #ffffff;
+    text-decoration: none;
+    /*форма*/
+    background-color: #e74a35;
+    background-image: linear-gradient(to top, #ca3824, #f26843);
+    display: block;
+    border: none;
+    box-shadow: 0px 1px 2px 0 #ac1000;
+    /*выравнивание*/
+    text-align: center;
+    vertical-align: middle; /*не работает, не центрируется по высоте*/
+    /*на лекции для кнопок были прописаны padding - нужны ли они здесь?*/  
+}
+
+.button:hover,
+.button:focus {
+    color: #ffffff;
+    background-image: linear-gradient(to top, #e74a35, #f26843);
+}
+
+
+.button:active {
+    background-image: linear-gradient(to bottom, #e74a35, #f26843);
+}
+
+
+
+.header {
+    width: 1200px;
+    margin-right: auto;
+    margin-left: auto;
+    /* для сетки - проверка выравнивания
+    border: 1px solid black;*/
+    display: flex;
+    flex-direction: column;
+    /*position:absolute;
+    z-index: 3; - пыталась сделать наложение на слайдер - но поехал весь макет*/
+}
+
+.header-navigation {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 9px;
+    margin-left: 27px;
+    margin-right: 27px;
+    /*Пробовала все , чтобы убрать по 2 пикселя сверху и снизу от лого - ничего не помогает:
+    justify-content: flex-start;
+    padding: 0; */
+
+    /* для сетки - проверка выравнивания
+    border: 1px solid black;
+    min-height: 64px; - был для сетки - можно убирать  */
+    border: 0;
+}
+
+.header-logo {
+    height: 64px;
+    width: 154px;
+    margin: 0; /*почему-то дает по 1му пикселю слева и снизу, хотя везде маржины по 0 px*/
+    padding: 0;
+    /* для сетки - проверка выравнивания - потом уберу
+    border: 1px solid black;*/
+}
+
+
+.block-navigation {
+    width: 982px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 10px;
+    margin-right: 0px;
+    /* для сетки - проверка выравнивания - потом уберу  
+    border: 1px solid black;*/
+}
+
+.site-navigation {
+    /*шрифт*/
+    font-size: 16px;
+    line-height: 18px;
+    list-style: none;
+    font-weight: bold;
+    /*форма*/
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 376px;
+    /*выравнивание*/
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    /* для сетки - проверка выравнивания - потом уберу 
+    border: 1px solid black; */
+}
+
+.site-navigation a {
+    display: block;
+    margin: 0;
+    /* ВОПРОС: Так как позже сделала первую кнопку овалом для дальнейшей стилизации нажатия, увеличился разрыв между первой и второй кнопками - 
+как лучше исправить */
+    /* ВОПРОС:Underline как-то по другому смотрится - тонкий и немного ниже...*/
+    /* для сетки - проверка выравнивания - потом уберу 
+    border: 1px solid black; */
+}
+
+/*для второго в списке (так как кнопка Каталога) сдвинула - НЕ СДВИГАЕТСЯ...*/
+.site-navigation-item:nth-child(1) {
+    margin-left: -10px;
+}
+
+
+.site-navigation a:hover,
+.site-navigation a:focus {
+    color: #ffbc9e;
+}
+
+.site-navigation-catalog {
+    /*форма*/
+    display: block;
+    width: 87px;
+    height: 32px;
+    border-radius: 16px;
+    /*выравнивание*/
+    line-height: 32px;
+    text-align: center;
+    /* для сетки - проверка выравнивания - потом уберу 
+    border: 1px solid black; */
+    position:relative;
+}
+
+.site-navigation-catalog:hover,
+.site-navigation-catalog:focus {
+    background-color: #f7f6f3;
+
+}
+
+.site-navigation-catalog a:hover,
+.site-navigation-catalog a:focus {
+    color: #323232;
+    background-color: #f7f6f3;
+    text-decoration: none;
+    border-radius: 16px;
+}
+
+/*Белый текст когда выпадает меню... как исправить?*/
+.site-navigation-catalog a:active {
+    box-shadow: inset 0px 2px 1px 0 #696969;
+    background-color: #ededed;
+    color: #323232;
+}
+
+/*для страницы каталога*/
+.site-navigation-catalog a .selected {
+    background-color: #d07058;
+}
+
+.site-navigation-submenu {
+    /*формат*/
+    list-style: none;
+    width: 143px;
+    height: 171px;
+    box-shadow: 0px 20px 20px 0 rgba(0, 0, 0, 0.4);
+    background-color: #f8f7f4;
+    border-radius: 5px;
+    /*позиционирование*/
+    position: absolute;
+    z-index: 1;
+    left: -7px;
+    top: 37px;
+    /*выравнивание*/
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+}
+
+
+.submenu-item a {
+    width: 122px;/*143px - maket - -padding 21px*/
+    height: 34px; /*на макете 28рх, но у меня они все сдвигаются + высота 171/на 5 ячеек - это 34, а не 28...*/
+    display: block;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 34px;
+    text-align: left;
+    color: #323232;
+    border-radius: 0;
+    text-decoration: none;
+    padding-left:21px;
+}
+
+.submenu-item:nth-child(1) {
+    font-weight: bold;
+    position: relative;
+}
+
+.submenu-item a:hover,
+.submenu-item a:focus {
+    background-color: #fbded8;
+    border-radius: 0;
+}
+
+.submenu-item:nth-child(1) a:hover,
+.submenu-item:nth-child(1) a:focus {
+    background-color: #fbded8;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.submenu-item:nth-child(n) a:hover,
+.submenu-item:nth-child(n) a:focus {
+    background-color: #fbded8;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+/*НЕ ВИДИТ - ПОЧЕМУ????....
+Не правильно вставила в HTML?: <div class="submenu-liner"> </div>
+*/
+.submenu-liner {
+    width: 128px;
+    height: 1px;
+    opacity: 0.2;
+    position:absolute;
+    bottom: 43px;
+    z-index: 2;
+}
+
+.user-navigation {
+    /*сетка*/
+    margin: 0;
+    padding: 0;
+    width: 245px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    /* для сетки 
+    border: 1px solid black;*/
+    /*шрифт*/
+    list-style: none;
+    font-size: 14px;
+    line-height: 16px;
+    align-items: center;
+}
+
+
+.search {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    width: 33px;
+    height: 33px;
+    display: block;
+    /*выравнивание*/
+    line-height: 33px;
+    text-align: center;
+    position: relative;
+}
+
+.search:hover,
+.search:focus {
+    background-color: #ffffff;
+}
+
+.search:hover path,
+.search:focus path {
+    fill: #000000;
+}
+
+.modal-search {
+    width: 341px;
+    height: 84px;
+    border-radius: 5px;
+    box-shadow: 0px 20px 20px 0 rgba(0, 0, 0, 0.4);
+    background-color: #f8f7f4;
+    position: absolute;
+    bottom: -88px;
+    right:0;
+    
+}
+.modal-search input {
+    /*форма*/
+    box-sizing: border-box;
+    background-color: #ffffff;
+    border: 2px solid #000000;
+    border-radius: 5px; /*не нашла в Zeplin, проверю в Фотошопе*/
+    width: 311px;
+    height: 44px;
+    border: solid 1px #d3d3d2;
+    /*Штрифт*/
+    font: inherit;
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: normal;
+    text-align: left;
+    color: #999999;
+    margin: 20px 15px;
+    padding: 15px;
+     
+}
+
+.login {
+    line-height: 32px; /*картинка входа позиционируется по высоте не корректно*/
+    width: 93px;
+    height: 32px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    /* Я вставила в html, как в проекте с заменой цветов - можно сделать с заменой svgшэк
+    background-image: url(../img/entrance.svg); /* Это свгшка на вход темный - когда вошел, а какая свгшка на вход белый?/
+    background-position: left;
+    background-repeat: no-repeat;*/
+    display: block;
+    text-decoration: none;
+    position: relative;
+}
+
+.login a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    /*выравнивание*/
+    text-align: center;
+    line-height: 32px;
+    width: 93px;
+    height: 32px;
+    display: block;
+}
+
+.login:hover,
+.login:focus {
+    background-color: #ffffff;
+}
+
+
+.login:hover g,
+.login:focus g {
+    fill: #000000;
+}
+
+/*когда находимся в форме цвет надписи опять БЕЛЫЙ - КАК ИСПРАВИТЬ??*/
+
+.login a:hover,
+.login a:focus {
+    color: #323232;
+}
+
+.basket {
+    /*выравнивание*/
+    line-height: 33px;
+    text-align: right;
+    padding-right: 16px; /*Увеличиваетя вся кнопка*/
+    /*форма*/
+    width: 84px; /*Размер по макету 100px, но за вычетом падинга*/
+    height: 33px;
+    border-radius: 16px;
+    background-color: rgba(255, 255, 255, 0.2);
+    /* Убрала из html, как в проекте с заменой цветов, так как приложены 2свгшки - можно сделать с заменой svgшэк*/
+    background-image: url(../img/basket.svg);
+    background-position: 16px 7px;
+    background-repeat: no-repeat;
+    display: block;
+}
+
+.basket a {
+    color: #ffffff;
+    font-weight: 500;
+    text-decoration: none;
+    text-align: right;
+}
+
+/*не наведение , а с товарами + текст Пусто или количество товаров исправить со скриптами*/
+.basket:hover,
+.basket:focus {
+    background-color: #ffffff;
+    background-image: url(../img/basket-red.svg);
+    background-position: 16px 7px;
+    background-repeat: no-repeat;
+    color: #323232;/*Когда попадаешь на кнопку - цвет теряется, когда на надпись уже появляется - НЕ ДЕЛА.....*/
+}
+
+.basket a:hover,
+.basket a:focus {
+    color: #323232;
+    padding: 4px; 
+}
+
+.working-time {
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: bold;
+    text-align: right;
+    margin-top: 1px;
+    margin-right: 27px;
+    width: auto; /*151px;*/
+    display: inline-block;
+    /* для сетки 
+    border: 1px solid black;*/
+}
+
+.phone-number {
+    font-size: 22px;
+    line-height: 24px;     /* По-чему-то все равно отображает по 1-2рх сверху и снизу строки  - как убрать? ни line-height, ни padding  не помогуют убрать 
+        line-height: 24px; - по макету     */
+    padding: 0;
+    font-weight: bold;
+    text-align: right;
+    margin-top: 4px;
+    margin-right: 26px;
+    width: auto;/* 166px;тпо макету, margin-left: 1008px; */
+    display: block;
+    /* для сетки 
+    border: 1px solid black;*/
+}
+
+.main-container {
+    width: 1200px;
+    /* для сетки 
+    border: 1px solid black;*/
+    margin: 0 auto;
+}
+
+/*СЕКЦИЯ СЛАЙДЕР*/
+
+.slider-background {
+    background-image: url(../img/slider-item1.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 1046px; /*увеличила на 1рх для удобства центрирования*/
+    height: 881px;
+    z-index: -1;
+    /* для сетки 
+    border: 1px solid black;*/
+    /*В Эксплорере почему-то наложился на следующий блок...*/
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -523px;
+}
+
+.slider {
+    width: 700px; 
+    height: 530px; 
+    margin-right: auto;
+    margin-left: auto;
+    border: 0;
+    /* для сетки 
+    border: 1px solid black;*/
+    display: flex;
+    flex-direction: column;
+}
+
+.slider h2 {
+    font-size: 60px;
+    line-height: 60px;
+    font-weight: bold;
+    text-align: center;
+    display: block;
+    margin-top: 274px; /*284 px по макету*/
+    margin-bottom: 29px;
+}
+
+
+.slider button {
+    /*шрифт*/
+    font: inherit;
+    font-size: 32px;
+    line-height: 44px;
+    font-weight: bold;
+    color: #ffffff;
+    text-align: center;
+    text-shadow: 0px 2px 5px rgba(160, 32, 11, 0.76);
+    /*форма*/
+    background-color: #f26843; /*если не прогрузится градиент*/
+    background-image: linear-gradient(to top, #e74a35, #f26843);
+    width: 280px;
+    height: 65px;
+    border-radius: 32px;
+    border: none;
+    box-shadow: 0px 2px 2px 0 rgba(172, 16, 0, 0.64);
+    /*выравнивание*/
+    margin-top: 0;         
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.slider button:hover,
+.slider button:focus {
+    box-shadow: 0px 2px 2px 0 #ac1000;
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), linear-gradient(to top, #e74a35, #f26843);
+}
+
+
+.slider button:active {
+    box-shadow: inset 0px 2px 2px 0 #942718;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.07), rgba(0, 0, 0, 0.07)), linear-gradient(to top, #e74a35, #f26843);
+}
+
+
+
+/*Слайдер - пока не пойму как его вставить - ЭТО НУЖНО ОБЯЗАТЕЛЬНО?
+
+
+    
+    
+            <div class="slider-site-wrapper">  - СТИЛИ ПЕРЕНЕСТИ В БОДИ и Slider background - и убрать ТЕГ
+                <div class="slider-container"> - ПОМЕНЯТЬ НА МОЮ СЕКЦИЮ - У МЕНЯ : <section class="slider">  - ПЕРЕНЕСТИ СТИЛИ
+
+    <input class="visually-hidden" type="radio" id="product-1" name="toggle" checked> - ПЕРЕНЕСЛА ИЗ БОДИ В ЭТУ СЕКЦИЮ
+    <input class="visually-hidden" type="radio" id="product-2" name="toggle">
+    <input class="visually-hidden" type="radio" id="product-3" name="toggle">
+
+                    <div class="slider-controls">
+                        <label for="product-1">Первый</label>
+                        <label for="product-2">Второй</label>
+                        <label for="product-3">Третий</label>
+                    </div>
+                    <ul class="slider-list">
+                        <li class="slider-item slide" id="slide1">
+                            <h3 class="slide-title">
+                                Крем-брюле и пломбир с малиновым джемом
+                            </h3>
+                            <a class="button slide-button" href="#">Давайте оба!</a>
+                        </li>
+                        <li class="slider-item slide" id="slide2">
+                            <h3 class="slide-title">
+                                Шоколадный пломбир и лимонный сорбет
+                            </h3>
+                            <a class="button slide-button" href="#">Давайте оба!</a>
+                        </li>
+                        <li class="slider-item slide" id="slide3">
+                            <h3 class="slide-title">
+                                Пломбир с помадкой и клубничный щербет
+                            </h3>
+                            <a class="button slide-button" href="#">Давайте оба!</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+
+.slider-site-wrapper {  - СТИЛИ ПЕРЕНЕСТИ В БОДИ и Slider background
+    min-width: 940px;
+    background-image: url("img/slider-item1.png");
+    background-repeat: no-repeat;
+    background-position: top center;
+    transition: background-image 0.5s ease, background-color 0.5s ease;
+}
+
+    .slider-site-wrapper::before,
+    .slider-site-wrapper::after {
+        content: "";
+        visibility: hidden;
+    }
+
+    .slider-site-wrapper::before {
+        background-image: url("img/slider-item2.png");
+    }
+
+    .slider-site-wrapper::after {
+        background-image: url("img/slider-item3.png");
+    }
+
+.slider-container {
+    width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+
+.slider { - наверное, надо все уводить в слайдер-контейнер
+    position: relative;
+    padding-top: 321px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.slider-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.slide {
+    display: none;
+}
+
+.slide-title {
+    width: 700px;
+    margin: 0 auto;
+    margin-bottom: 27px;
+    font-size: 60px;
+    line-height: 60px;
+    font-weight: 800;
+}
+
+.slider .button {
+    display: inline-block;
+    padding: 12px 44px;
+    font-weight: 600;
+    font-size: 31px;
+    line-height: 41px;
+    text-align: center;
+    color: #ffffff;
+    vertical-align: top;
+    text-decoration: none;
+    text-shadow: 0 2px 5px rgba(160, 32, 11, 0.76);
+    background: #f26843;
+    background: linear-gradient(to bottom, #f26843 0%, #e74a35 100%);
+    border-radius: 50px;
+    box-shadow: 0 2px 2px rgba(172, 16, 0, 0.64);
+    border: none;
+    cursor: pointer;
+}
+
+    .slider .button:hover {
+        background: linear-gradient(to bottom, #f58669 0%, #ec6f5e 100%);
+        box-shadow: 0 2px 2px rgba(172, 16, 0, 1);
+    }
+
+    .slider .button:active {
+        background: linear-gradient(to bottom, #d84732 0%, #e1613e 100%);
+        box-shadow: inset 0 2px 2px rgba(172, 16, 0, 1);
+    }
+
+.slider-controls {
+    position: absolute;
+    bottom: 63px;
+    left: 0;
+    z-index: 20;
+    font-size: 0;
+}
+
+    .slider-controls label {
+        display: inline-block;
+        width: 17px;
+        height: 17px;
+        margin-right: 8px;
+        vertical-align: top;
+        background-color: transparent;
+        border: 2px solid #ffffff;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+#product-1:checked ~ .site-wrapper {
+    background-color: #849d8f;
+    background-image: url("img/slider-item1.png");
+}
+
+#product-2:checked ~ .site-wrapper {
+    background-color: #8996a6;
+    background-image: url("img/slider-item2.png");
+}
+
+#product-3:checked ~ .site-wrapper {
+    background-color: #9d8b84;
+    background-image: url("img/slider-item3.png");
+}
+
+    #product-1:checked ~ .site-wrapper #slide1,
+    #product-2:checked ~ .site-wrapper #slide2,
+    #product-3:checked ~ .site-wrapper #slide3 {
+        display: block;
+    }
+
+    #product-1:checked ~ .site-wrapper label[for="product-1"],
+    #product-2:checked ~ .site-wrapper label[for="product-2"],
+    #product-3:checked ~ .site-wrapper label[for="product-3"] {
+        background-color: #ffffff;
+    }
+
+*/
+
+/*СЕКЦИЯ СПЕЦПРЕДЛОЖЕНИЯ*/
+
+.special-offers {
+    margin: 0 auto;
+    width: 1146px;
+    height: 229px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* для сетки 
+    border: 1px solid black;*/
+}
+
+.special-offers h3 {
+    font-size: 35px;
+    line-height: 41px;
+    font-weight: bold;
+    /*выравнивание*/
+    margin: 0;
+    margin-top: 17px; /*Уменьшила за счет Pixel Perfect - ПОЧЕМУ МЕНЬШЕ? - сначала ставила 20рх = на макете 23px - 3px в лайн-хайт*/
+    margin-left: 20px;
+    /* для сетки 
+    border: 1px solid black;*/
+}
+
+.special-offers p {
+    /*форма*/
+    width: 515px; /*на макете 512рх, но переносится текст на 3ью строку... ПОЧЕМУ??? */
+    height: 40px;
+    /*шрифт*/
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: bold;
+    /*выравнивание*/ 
+    margin: 0;
+    padding: 0;
+    margin-top: 15px; /* на макете 20рх, так как есть еще line-height, который добавляет по 2рх и по 3px, то маржин уменьшила до 15рх*/
+    margin-left: 20px;
+    /* для сетки 
+    border: 1px solid black;*/
+    }
+
+.offers-raspberry {
+    width: 560px; 
+    height: 229px;
+    background-color: #c20f3d;
+    background-image: url(../img/bg_rb.jpg);
+    background-repeat: no-repeat;
+    /* background-position: ; */
+    background-size: cover;
+    border-radius: 15px;
+    padding: 0;
+    margin: 0;
+    /* для сетки 
+    border: 1px solid black;*/
+}
+
+.offers-chocolate {
+    width: 560px;
+    height: 229px;
+    background-color: #3f2414;
+    background-image: url(../img/bg_ch.jpg);
+    background-repeat: no-repeat;
+    /* background-position: ; */
+    background-size: cover;
+    border-radius: 15px; /*виден в легого края белый контур - надо увеличить радиус?*/
+    padding: 0; 
+    margin: 0;
+    /* для сетки 
+    border: 1px solid black;*/
+ }
+
+.special-offers .button {
+    /*форма*/
+    width: 165px;
+    height: 46px;
+    border-radius: 23px;
+    /*шрифт*/
+    text-decoration: none;
+    /*выравнивание*/
+    display: block;
+    margin-top: 45px;
+    margin-right: 21px;
+    margin-left:auto;
+    line-height: 46px;
+    /* для сетки 
+    border: 1px solid black;*/
+}
+
+.offers-raspberry .button {
+    width: 165px;
+}
+
+.offers-chocolate .button {
+    width: 189px;
+}
+
+
+/*СЕКЦИЯ КАТАЛОГ*/
+
+.catalog {
+    margin-top: 0px;
+    margin-right: 27px;
+    margin-left: 27px;
+    width: auto;
+    height: auto;
+    /* для сетки 
+    border: 1px solid black;*/  
+}
+
+.hit {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.catalog-list {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.catalog-item {
+    text-align: center;
+    width: 267px;
+    margin-top: 40px;
+    margin-right: 26px;
+    margin-left: 0px;
+    position: relative;
+    /* Временно для сетки
+    border: 1px solid black; */
+}
+
+.catalog-item:nth-child(4n) {
+    margin-right: 0;
+}
+
+
+
+/* Название мороженного */
+.catalog-item h3 { 
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 500;
+  display: block;
+  margin: 0;
+  margin-top: 6px;/*17px-3px line-height ПОЧЕМУ_ТО накладывается еще какой-то маржин*/
+}
+
+.catalog-item img{
+    border-radius:134px; /*Чуть чуть вылезает белый контур у розового - что делать?*/
+}
+
+.catalog-price {
+    position: absolute;
+    top: 210px; /*214px-по макету*/
+    left: 0;
+}
+
+.catalog-item p {
+  font-size: 45px;
+  line-height: 45px;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* для текста /кг */
+.catalog-item span {
+  font-size: 30px;
+  line-height: 45px;
+  font-weight: bold;
+}
+
+/* ПОКА НЕ РАБОТАЕТ: ВОПРОСЫ:
+.catalog-item:hover,
+.catalog-item:focus {
+    width: 293px; - размер больше чем текущий, из-за этого сдвиг происходит при наведении - надо заново пересчитывать маржины мужду картинками с учетом item такого разммера?
+    height: 405px;
+    opacity: 0.2; - закрывает все с картинкой - как довавить опасити только фону?
+    box-shadow: 0px 20px 20px 0 rgba(0, 0, 0, 0.4);
+    background-color: #f8f7f4;
+}   
+    КАК ДОБАВИТЬ В НАВЕДЕНИЕ КНОПКУ?*/
+    
+    /*ПРЕИМУЩЕСТВА*/
+    .features {
+    color: #323232;
+    width: 1146px;
+    height: 306px;
+    background-color: #ede2ca;
+    background-image: url(../img/bg_w.jpg); /* Как обрезать под заливку? 
+    background-repeat: repeat; */
+    object-fit: contain;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+}
+
+.features h3 {
+    font-size: 24px;
+    line-height: 30px;
+    font-weight: 500;
+    width: 1020px;
+    height: 54px;
+    margin-top: 25px; /*29px по макету -3 из лайн-хайт*/
+    margin-left: 21px; 
+    margin-bottom: 0;
+    display: block;
+    padding: 0;
+}
+
+.features-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
+}
+
+.features-item {
+    position:relative;
+}
+
+.features-item p{
+    display: inline-block;
+    font-weight: normal;
+    width: 480px;
+    text-align: left;
+    margin:0;
+    margin-top: 22px; /* -6рх за лайн-хайт / 26рх над 1 и 2, 28рх над 3 и 4 без учета line-height*/
+    margin-left: 76px; /*91-92 рх у 3 и 4ого*/
+    margin-right: 0px; /*33-34 рх у 3 и 4ого*/
+    /* Временно для сетки
+    border: 1px solid black; */
+}
+
+.features-item:nth-child(2n) {
+    /*width: 485px; - НЕ РАБОТАЕТ ПРИШЛОСЬ НА ВСЕ СДЕЛАТЬ*/
+    margin-left: 10px; /*91рх у 3 и 4ого */
+}
+.features-item-img {
+    position:absolute;
+    top: 12px;
+    left: 20px;
+
+}
+
+
+
+/*НОВОСТИ и ПОДПИСКА*/
+.news-subscription {
+    width: 1146px;
+    height: 220px;
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* для сетки 
+    border: 1px solid black;*/
+}
+
+.news {
+    font-weight: 700;
+    color: #323232;
+    text-align: left;
+    width: 560px;
+    height: 220px;
+    border-radius: 15px;
+    background-color: #ffffff;
+    background-image: url(../img/bg_sb.jpg);
+    background-repeat: no-repeat; /*Тоже Флекс задавать?*/
+}
+
+.news p {
+    font-weight: 500;
+    color: #323232;
+    text-align: left;
+    display: block;
+    margin: 0;
+    margin-top: 24px;
+    margin-left: 20px;
+}
+
+.news a {
+    display: inline-block;
+    width: 280px;
+    font-size: 24px;
+    color: #323232;
+    line-height: 30px;
+    font-weight: bold;
+    margin-top: 2px;
+    margin-left: 19px;
+    border-radius: 15px;
+}
+
+.subscription {
+    width: 560px;
+    height: 220px;
+    background-image: url(../img/bg-post.svg);
+    background-repeat: no-repeat;
+}
+.subscription-inner {
+    width: 549px;
+    height: 211px;
+    border-radius: 10px;
+    background-color: #f8f7f4;
+    margin: 4px 5px 6px 5px; /*auto; - сверху слишком большой маржин получается / маржины кривые на макете от4 до 6 рх*/
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.subscription p {
+    width: 506px;
+    height: 61px;
+    font-weight: normal;
+    text-align: left;
+    color: #5a5a5a;
+    margin-top: 30px; /* на макете 30рх, так как есть еще line-height, который добавляет 3px, то маржин уменьшила */
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+    /* для сетки 
+        border: 1px solid black;*/
+}
+.subscription .div-input {
+    width: auto;
+    height: 44px;
+    margin-bottom: 35px; 
+    margin-left: 20px;
+    margin-right: 21px;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* для сетки 
+        border: 1px solid black;*/
+}
+
+.subscription input {
+
+    font-weight: normal;
+    line-height: 24px;
+    text-align: left;
+    color: #999999;
+    margin: 0px;
+    padding: 15px 205px 13px 14px;
+    border-radius: 5px;
+    border: solid 1px rgba(178, 178, 178, 0.52);
+    /*для сетки border: 1px solid black;
+    Размер текста, если сдвиг потом отсутпами делается */ 
+    /* width: 368px;
+    height: 44px;*/
+    width: 149px;
+    height: 16px;
+}
+.subscription .button {
+    width: 129px; 
+    height: 44px;
+    margin-right: 0;
+    padding: 0;
+    /* для сетки 
+        border: 1px solid black;*/
+    border-radius: 22px;
+    text-decoration: none;
+}
+
+.contacts {
+    width: 1200px;
+    height: 430px;
+    object-fit: contain;
+    /*background-image: url(../img/map.png);
+    background-repeat: no-repeat; пока оставила в html, так как потом там будет форма и сверху должно быть наложение блока с контактами*/
+    margin-top: 39px;
+    position: relative;
+}
+
+.div-contacts {
+    position: absolute;
+    z-index: 2;
+    left: 871px;
+    bottom: 62px;
+    /*форма*/
+    width: 252px; /*за вычетом паддингов*/
+    height: 276px; /*за вычетом паддингов*/
+    padding-top: 15px;
+    padding: 12px 25px 17px 25px;
+    background-color: #ffffff;
+    /*background-color: rgba(255, 255, 255, 0.98); из фотошопа с коэффициентом 0.98 - что лучше?*/
+    border-radius: 15px;
+    color: #323232;
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: normal;
+    /* для сетки
+    border: 1px solid black; */
+    /* выравнивание */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.contacts p {
+    margin: 0;
+    margin-top: 15px;
+    width: 252px;
+    /* для сетки 
+    border: 1px solid black;*/
+    display: inline-block;
+}
+
+.div-contacts-time {
+    margin-top: 0px;
+}
+
+.contacts span {
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: bold;
+    width: 252px;
+    margin: 0;
+    /* для сетки 
+    border: 1px solid black;*/
+    display: inline-block;
+}
+
+.contacts .button {
+    width: 252px;
+    height: 44px;
+    margin: 0;
+    margin-top: 20px;
+    padding: 0;
+    /* для сетки 
+        border: 1px solid black;*/
+    border-radius: 22px;
+    text-decoration: none;
+    vertical-align: middle; /*не работает*/
+    display: block;
+}
+
+.contacts-pin {
+    position: absolute;
+    z-index: 3;
+    left: 266px;
+    top: 139px;
+}
+
+/*НИЖНИЙ БЛОК*/
+
+.main-footer {
+    width: 1200px;
+    min-height: 103px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+    /* для сетки 
+    border: 1px solid black;*/
+    position:relative;
+}
+
+.inner-page .main-footer {
+    margin-top: 4px;
+}
+
+.footer-separator {
+    width: 1146px;
+    height: 1px;
+    opacity: 0.3;
+    background-color: #ffffff;
+    /*расположение*/
+    position:absolute;
+    left: 50%;
+    margin-left:-573px;
+}
+
+.footer-social {
+    width: auto;
+    margin-top: 36px;
+    margin-left: 28px;
+    margin-bottom: 29px;
+    /* для сетки
+    border: 1px solid black; */
+}
+
+.footer-social ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:flex-start; 
+    width: auto;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    /* для сетки 
+    border: 1px solid black;*/
+}
+
+.social-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    /*object-fit: contain;*/
+    opacity: 0.8;
+    border: 3px solid rgba(255, 255, 255, 0.5);
+    border-radius: 32px; /*ПРИШЛОСЬ СТАВИТЬ БОЛЬШЕ - не стыкуется с картикой до конца*/
+    margin-right: 11px;
+}
+
+.social-button:hover,
+.social-button:focus {
+    opacity: 1;
+}
+
+.social-button:active {
+    opacity: 0.7;
+}
+
+.footer-info {
+    width: 380px;
+    margin-top: 35px; /*maket 37 px - 1-2 px line-height*/
+    margin-bottom: 29px;
+    /* для сетки 
+    border: 1px solid black;*/
+
+}
+
+.footer-info ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    align-items: center;
+        /* для сетки 
+    border: 1px solid black;*/
+    list-style: none;
+}
+
+.footer-info a {
+    font-size: 13px;
+    font-weight: normal;
+    line-height: 16px;
+    text-align: left;
+    box-sizing: padding-box;
+    padding-left: 30px;
+}
+
+.footer-info-item:nth-child(1) {
+    background-image: url(../img/heart.svg);
+    background-position: left center;
+    background-repeat: no-repeat;
+    width: 145px;
+}
+
+.footer-info-item:nth-child(3) {
+    width: 145px;
+}
+
+.footer-copyright {
+    width: 189px;
+    min-height: 62px;
+    margin: 0;
+    margin-top: 18px;
+    text-align: left;
+    /* для сетки 
+    border: 1px solid black;*/
+    margin-right:27px;
+}
+.footer-copyright p {
+    margin: 0;
+    margin-top: 2px;
+    line-height: 18px;
+    color:#fefefe;
+    font-size: 12px;
+    /* для сетки 
+    border: 1px solid black;*/
+}
+
+
+
+
+
+
+/*ВНУТРЕНЯЯ СТРАНИЦА*/
+/*Как сделать наложение header на main-container? за счет position: fixed? но тогда это не соответствует сдвигу в случае добавления в каталог еще кнопок.... */
+
+.page-title {
+    font-size: 35px;
+    font-weight: bold;
+    line-height: 41px;
+    text-align: left;
+    color: #ffffff;
+    margin: 0;
+    margin-bottom: 0px;
+    padding: 0;
+}
+
+.breadcrumbs {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    padding: 0;
+    padding-right: 10px;
+    margin: 0;
+    margin-bottom:9px;
+    list-style: none;
+    font-size: 14px;
+    line-height:16px;
+}
+
+.breadcrumbs li {
+    margin-right: 10px;
+}
+
+.breadcrumbs li:last-child {
+    margin-right: 0;
+}
+
+/*ЧЕМ лучше кавычки сделать? и как расстояние до них увеличить? - МОЖЕТ в html  в li поставить русские кавычки?*/
+.breadcrumbs li::after {
+    content: "    >>";
+    font-size: 10px;
+    width: 8px;
+    height: 8px;
+    color: #ffffff;
+}
+
+.breadcrumbs-current a{
+    text-decoration: none;
+}
+
+.breadcrumbs-current a:hover,
+.breadcrumbs-current a:focus,
+.breadcrumbs-current a:active {
+    color: #ffffff;
+}
+
+/* ФИЛЬТРЫ */
+
+.filters {
+    display: flex;
+    flex-wrap: wrap; /*не чувствуются отступы между полями.... - ПОЧЕМУ?*/
+}
+
+.filters fieldset {
+    padding: 0;
+    margin: 0;
+    margin-top: 15px;
+    border: none;
+    /* для сетки 
+    border: 1px solid black;*/
+}
+
+.filter legend {
+    padding-left: 16px; /*не сдвигается относительно самого поля... - КАК?*/
+    margin-left: 16px; /*не сдвигается относительно самого поля... - КАК?*/
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+}
+
+.filter-sorting {
+    width: 196px;
+    height: 57px;
+    display: inline-block;
+    /* для сетки */
+    border: 1px solid black;
+}
+
+.filter-sorting select {
+    width: 194px;
+    height: 37px;
+    border-radius: 18px;
+    background-color: rgba(255, 255, 255, 0.2);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 18px;
+    color: #ffffff;
+    padding-left: 16px;
+    padding-right: 15px;
+}
+/*как заменить станадратный треугольник на icon-down-dir?*/
+
+.filter-sorting option {
+    background-color: #ffffff;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 18px;
+    color: #323232;
+    padding-left: 20px;
+}
+
+.filter-price {
+    width: 220px;
+    height: 57px;
+    display: inline-block;
+    margin-left: 14px;
+    margin-top: 10px; /*ПОЧЕМУ-то сдвинут наверх???*/
+    padding: 10px; /*ПОЧЕМУ-то сдвинут наверх???*/
+}
+
+.filter-price label {
+    margin-top: 10px; /*ПОЧЕМУ-то сдвинут наверх???*/
+}
+
+.filter-price input {
+    width: 220px;
+    height: 37px;
+    border-radius: 18px;
+    background-color: rgba(255, 255, 255, 0.2);
+    text-align: left;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 18px;
+    
+}
+
+.filter-fat {
+    width: 415px;
+    height: 57px;
+    display: inline-flex;
+    margin-left: 14px;
+}
+
+.filter-fat div {
+    width: 415px;
+    height: 37px;
+    border-radius: 18px;
+    background-color: rgba(255, 255, 255, 0.2);
+    line-height: 37px;
+    padding-left: 14px;
+    padding-right: 14px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.filter-fillers {
+    width: 703px;
+    height: 57px;
+    display:inline-flex;
+}
+
+.filter-fillers div {
+    width: 703px;
+    height: 37px;
+    border-radius: 18px;
+    background-color: rgba(255, 255, 255, 0.2);
+    line-height: 37px;
+    vertical-align:central;
+    padding-left: 14px;
+    padding-right: 14px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/*НЕ ПОЛУЧАЕТСЯ СДЕЛАТЬ КРАСИВЫЕ ЗНАЧКИ*/
+
+.filter-fat-radio + label::before,
+.filter-fat input[type="radio"] + label::before {
+    content: "";
+    position: absolute;
+    top: 9px;
+    left: -38px;
+    width: 22px;
+    height: 22px;
+    background-image: url("../img/radio-off.svg");
+    background-repeat: no-repeat;
+    background-position: 0 0;
+}
+
+.filter-fat-radio + label::before,
+.filter-fat input[type="radio"]:checked + label::before {
+    content: "";
+    position: absolute;
+    top: 9px;
+    left: -38px;
+    width: 22px;
+    height: 22px;
+    background-image: url("../img/radio-on.svg");
+    background-repeat: no-repeat;
+    background-position: 0 0;
+}
+
+/*НЕ ПОЛУЧАЕТСЯ СДЕЛАТЬ КРАСИВЫЕ ЗНАЧКИ*/
+
+.filter-fillers-checkbox + label::before,
+.filter-fillers input[type="checkbox"] + label::before {
+    content: "";
+    position: absolute;
+    top: 9px;
+    left: -38px;
+    width: 24px;
+    height: 20px;
+    background-image: url("../img/checkbox-off.svg");
+    background-repeat: no-repeat;
+    background-position: 0 0;
+}
+    
+
+.filter-fillers input[type="checkbox"]:checked + label::before {
+    content: "";
+    position: absolute;
+    top: 9px;
+    left: -38px;
+    width: 20px;
+    height: 20px;
+    background-image: url("../img/checkbox-on.svg");
+    background-repeat: no-repeat;
+    background-position: 0 0;
+}
+
+
+.filter-button {
+    width: 144px;
+    height: 37px;
+    border: solid 2px #ffffff;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 18px;
+    background-color: rgba(255, 255, 255, 0.2);
+    text-align: center;
+    border-radius: 18px;
+    line-height: 33px;
+    color: #ffffff;
+    margin-top: 20px; /*НЕ чувствует....*/
+    margin-left: 13px; /*НЕ чувствует....*/
+}
+
+
+/* СТРАНИЦЫ */
+.pagination-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0px 23px 0px 23px;
+    margin: 0;
+    margin-left: 958px;
+    margin-top: 88px; /*91px - 3 px line-height*/
+    margin-bottom: 30px;
+    list-style: none;
+    background-image: url("../img/icon-left-small.svg"), url("../img/icon-right-small.svg");
+    background-repeat: no-repeat, no-repeat;
+    background-position: left center, right center;
+    transform: rotate(90deg), rotate(0deg); /* НЕ ПОВОРАЧИВАЕТ ПЕРВУЮ СТРЕЛКУ - КАК ИСПРАВИТЬ?*/
+    /* для сетки 
+    border: 1px solid black;*/
+}
+
+.pagination-item {
+    margin-right: 1px;
+}
+
+.pagination-item a {
+    display: block;
+    width: 27px;
+    height: 26px;
+    color: #ffffff;
+    line-height: 26px;
+    text-align: center;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.pagination-item a:hover,
+.pagination-item a:focus {
+    background-color: rgba(255, 255, 255, 0.2);
+    width: 27px;
+    height: 26px;
+    border-radius: 13px;
+    color: black;
+    text-decoration: none;
+}
+
+
+.pagination-item a:active {
+    background-color: #ffffff;
+    width: 27px;
+    height: 26px;
+    border-radius: 13px;
+    color: black;
+    text-decoration: none;
+}
+
+
+.pagination-item-current a {
+    background-color: #ffffff;
+    width: 27px;
+    height: 26px;
+    border-radius: 13px;
+    color: black;
+    text-decoration: none;
+}
+
+.pagination-item-current a:hover,
+.pagination-item-current a:focus,
+.pagination-item-current a:active {
+    background-color: #ffffff;
+    width: 27px;
+    height: 26px;
+    border-radius: 13px;
+    color: black;
+    text-decoration: none;
+}
+
+/* ВСПЛЫВАЮЩИЕ ФОРМЫ*/
+
+.modal-login {
+    width: 277px;
+    height: 214px;
+    border-radius: 5px;
+    box-shadow: 0px 20px 20px 0 rgba(0, 0, 0, 0.4);
+    background-color: #f8f7f4;
+    position: absolute;
+    right: 0;
+    margin-top: 4px;
+}
+
+.modal-login input[type="email"],
+.modal-login input[type="password"] {
+    /*форма*/
+    box-sizing: border-box;
+    background-color: #ffffff;
+    border-radius: 5px;
+    border: solid 1px #d3d3d2;
+    width: 241px;
+    height: 44px;
+    margin-top: 20px;
+    margin-left: 19px;
+    margin-bottom: 0;
+    /*Штрифт*/
+    font: inherit;
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: normal;
+    text-align: left;
+    color: #999999;
+    padding: 15px 14px 14px 14px;
+}
+
+.modal-login .button {
+    width: 100px;
+    height: 44px;
+    box-shadow: 0px 1px 2px 0 #ac1000;
+    margin-left: 19px;
+    margin-top: 20px; 
+    padding: 0;
+    border-radius: 22px;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align:top;
+}
+
+.login-password-registration {
+    width: 130px;
+    height:44px;
+    margin-left: 16px; /*по макету 21рх, по Пиксель-перфект меньше*/
+    margin-top: 20px; /*по макету 25рх, по Пиксель-перфект меньше*/
+    padding: 0;
+    display: inline-block;
+    /* для сетки 
+    border: 1px solid black;*/
+}
+
+.modal-login a {
+    /*шрифт*/
+    width: 130px;
+    min-height: 13px; /*НЕ ВЫРАВНИВАЕТСЯ ВЫСОТА - ДОЛЖНА БЫТЬ МЕНЬШЕ между строчками*/
+    font-size: 13px;
+    font-weight: normal;
+    line-height: 13px;
+    text-align: left;
+    color: #323232;
+    text-decoration: underline;
+    /*выравнивание*/
+    margin: 0;
+    padding: 0;
+    display: inline;
+    vertical-align: top;
+    /* для сетки
+    border: 1px solid black; */
+}
+
+
+
+.modal-feedback {
+    width: 478px;
+    height: 443px;
+    border-radius: 10px;
+    background-color: #f8f7f4;
+    top: 50%;
+    left: 50%;
+    /*display: none;*/
+    margin-top: -221px;
+    margin-left: -239px;
+    border-radius: 10px;
+    position: fixed;
+}
+
+.modal-feedback p {
+    /*шрифт*/
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 28px;
+    text-align: left;
+    color: #323232;
+    /*выравнивание*/
+    width: 355px;
+    margin: 0;
+    margin-top: 18px;/*20px-2px line-height*/
+    margin-left: 24px;
+}
+
+.modal-feedback input[type="text"],
+.modal-feedback input[type="email"],
+.modal-feedback textarea {
+    /*форма*/
+    box-sizing: border-box;
+    background-color: #ffffff;    
+    border-radius: 5px; /*не нашла в Zeplin, проверю в Фотошопе*/
+    border: solid 1px rgba(178, 178, 178, 0.52);    
+    /*Штрифт*/
+    font: inherit;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: normal;
+    text-align: left;
+    color: #999999;
+}
+
+.modal-feedback input[type="text"] {
+    margin: 0px;
+    margin-top: 18px;/*24px-2px line-height title НО я уменьшила по Пиксель-перфект - ПОЧЕМУ реально меньше? что съедает?*/
+    margin-left: 24px;
+    padding: 16px 15px 15px 15px;
+    width: 267px;
+    height: 44px;
+}
+
+.modal-feedback input[type="email"] {
+    margin: 0px;
+    margin-top: 20px;
+    margin-left: 24px;
+    padding: 16px 14px 12px 14px;
+    width: 267px;
+    height: 44px;
+}
+
+.modal-feedback textarea {
+    margin: 0px;
+    margin-top: 20px;
+    margin-left: 24px;
+    padding: 9px 15px 9px 15px;/*- 4px line-height*/
+    width: 428px;
+    height: 155px;
+}
+    
+.modal-feedback .button {
+    width: 139px;
+    height: 44px;
+    box-shadow: 0px 2px 2px 0 rgba(172, 16, 0, 0.64);
+    margin-left: 314px;
+    margin-top: 19px;/*по макету 25рх, по Пиксель-перфект меньше*/
+    padding: 0;
+    border-radius: 22px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-feedback .close {
+    position: absolute;
+    background-image: url(../img/close.svg);
+    background-repeat: no-repeat;
+    top: 17px;
+    left: 443px;
+    width: 18px;
+    height: 17px;
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+}

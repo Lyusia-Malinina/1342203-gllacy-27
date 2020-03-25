@@ -1,4 +1,4 @@
-﻿body {
+body {
     margin: 0;
     padding: 0;
     background-color: #849d8f;
@@ -47,9 +47,7 @@ a:focus {
     border: none;
     box-shadow: 0px 1px 2px 0 #ac1000;
     /*выравнивание*/
-    text-align: center;
-    vertical-align: middle; /*не работает, не центрируется по высоте*/
-    /*на лекции для кнопок были прописаны padding - нужны ли они здесь?*/  
+    text-align: center;  
 }
 
 .button:hover,
@@ -73,8 +71,6 @@ a:focus {
     border: 1px solid black;*/
     display: flex;
     flex-direction: column;
-    /*position:absolute;
-    z-index: 3; - пыталась сделать наложение на слайдер - но поехал весь макет*/
 }
 
 .header-navigation {
@@ -84,20 +80,15 @@ a:focus {
     margin-top: 9px;
     margin-left: 27px;
     margin-right: 27px;
-    /*Пробовала все , чтобы убрать по 2 пикселя сверху и снизу от лого - ничего не помогает:
-    justify-content: flex-start;
-    padding: 0; */
-
     /* для сетки - проверка выравнивания
-    border: 1px solid black;
-    min-height: 64px; - был для сетки - можно убирать  */
+    border: 1px solid black; */
     border: 0;
 }
 
 .header-logo {
     height: 64px;
     width: 154px;
-    margin: 0; /*почему-то дает по 1му пикселю слева и снизу, хотя везде маржины по 0 px*/
+    margin: 0; 
     padding: 0;
     /* для сетки - проверка выравнивания - потом уберу
     border: 1px solid black;*/
@@ -130,23 +121,13 @@ a:focus {
     margin: 0;
     padding: 0;
     align-items: center;
-    /* для сетки - проверка выравнивания - потом уберу 
+    /* для сетки - проверка выравнивания 
     border: 1px solid black; */
 }
 
 .site-navigation a {
     display: block;
     margin: 0;
-    /* ВОПРОС: Так как позже сделала первую кнопку овалом для дальнейшей стилизации нажатия, увеличился разрыв между первой и второй кнопками - 
-как лучше исправить */
-    /* ВОПРОС:Underline как-то по другому смотрится - тонкий и немного ниже...*/
-    /* для сетки - проверка выравнивания - потом уберу 
-    border: 1px solid black; */
-}
-
-/*для второго в списке (так как кнопка Каталога) сдвинула - НЕ СДВИГАЕТСЯ...*/
-.site-navigation-item:nth-child(1) {
-    margin-left: -10px;
 }
 
 
@@ -169,10 +150,12 @@ a:focus {
     position:relative;
 }
 
+
+
 .site-navigation-catalog:hover,
 .site-navigation-catalog:focus {
     background-color: #f7f6f3;
-
+    color: #323232;
 }
 
 .site-navigation-catalog a:hover,
@@ -214,12 +197,25 @@ a:focus {
     justify-content: space-between;
     margin: 0;
     padding: 0;
+    /*отображение*/
+    display: none;
 }
 
+.site-navigation-catalog:focus .site-navigation-submenu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.site-navigation-catalog:hover .site-navigation-submenu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 
 .submenu-item a {
     width: 122px;/*143px - maket - -padding 21px*/
-    height: 34px; /*на макете 28рх, но у меня они все сдвигаются + высота 171/на 5 ячеек - это 34, а не 28...*/
+    height: 34px; /*на макете 28рх,  высота 171/на 5 ячеек - это 34px*/
     display: block;
     font-size: 14px;
     font-weight: normal;
@@ -242,6 +238,8 @@ a:focus {
     border-radius: 0;
 }
 
+
+
 .submenu-item:nth-child(1) a:hover,
 .submenu-item:nth-child(1) a:focus {
     background-color: #fbded8;
@@ -256,15 +254,18 @@ a:focus {
     border-bottom-right-radius: 5px;
 }
 
-/*НЕ ВИДИТ - ПОЧЕМУ????....
-Не правильно вставила в HTML?: <div class="submenu-liner"> </div>
-*/
+.submenu-item a:active {
+    background-color: #f6b5a5;
+    border-radius: 0;
+}
+
+
 .submenu-liner {
     width: 128px;
     height: 1px;
-    opacity: 0.2;
+    background-color: #d1d0ce;
     position:absolute;
-    bottom: 43px;
+    bottom: 0;
     z-index: 2;
 }
 
@@ -317,14 +318,21 @@ a:focus {
     position: absolute;
     bottom: -88px;
     right:0;
-    
+    display: none;
 }
+
+.search:hover .modal-search,
+.search:focus .modal-search {
+    display: block;
+}
+
+
 .modal-search input {
     /*форма*/
     box-sizing: border-box;
     background-color: #ffffff;
     border: 2px solid #000000;
-    border-radius: 5px; /*не нашла в Zeplin, проверю в Фотошопе*/
+    border-radius: 5px; 
     width: 311px;
     height: 44px;
     border: solid 1px #d3d3d2;
@@ -341,15 +349,11 @@ a:focus {
 }
 
 .login {
-    line-height: 32px; /*картинка входа позиционируется по высоте не корректно*/
+    line-height: 32px; 
     width: 93px;
     height: 32px;
     background-color: rgba(255, 255, 255, 0.2);
     border-radius: 16px;
-    /* Я вставила в html, как в проекте с заменой цветов - можно сделать с заменой svgшэк
-    background-image: url(../img/entrance.svg); /* Это свгшка на вход темный - когда вошел, а какая свгшка на вход белый?/
-    background-position: left;
-    background-repeat: no-repeat;*/
     display: block;
     text-decoration: none;
     position: relative;
@@ -378,7 +382,7 @@ a:focus {
     fill: #000000;
 }
 
-/*когда находимся в форме цвет надписи опять БЕЛЫЙ - КАК ИСПРАВИТЬ??*/
+
 
 .login a:hover,
 .login a:focus {
@@ -389,13 +393,12 @@ a:focus {
     /*выравнивание*/
     line-height: 33px;
     text-align: right;
-    padding-right: 16px; /*Увеличиваетя вся кнопка*/
+    padding-right: 16px; 
     /*форма*/
     width: 84px; /*Размер по макету 100px, но за вычетом падинга*/
     height: 33px;
     border-radius: 16px;
     background-color: rgba(255, 255, 255, 0.2);
-    /* Убрала из html, как в проекте с заменой цветов, так как приложены 2свгшки - можно сделать с заменой svgшэк*/
     background-image: url(../img/basket.svg);
     background-position: 16px 7px;
     background-repeat: no-repeat;
@@ -409,14 +412,14 @@ a:focus {
     text-align: right;
 }
 
-/*не наведение , а с товарами + текст Пусто или количество товаров исправить со скриптами*/
+
 .basket:hover,
 .basket:focus {
     background-color: #ffffff;
     background-image: url(../img/basket-red.svg);
     background-position: 16px 7px;
     background-repeat: no-repeat;
-    color: #323232;/*Когда попадаешь на кнопку - цвет теряется, когда на надпись уже появляется - НЕ ДЕЛА.....*/
+    color: #323232;
 }
 
 .basket a:hover,
@@ -440,14 +443,13 @@ a:focus {
 
 .phone-number {
     font-size: 22px;
-    line-height: 24px;     /* По-чему-то все равно отображает по 1-2рх сверху и снизу строки  - как убрать? ни line-height, ни padding  не помогуют убрать 
-        line-height: 24px; - по макету     */
+    line-height: 24px;     
     padding: 0;
     font-weight: bold;
     text-align: right;
     margin-top: 4px;
     margin-right: 26px;
-    width: auto;/* 166px;тпо макету, margin-left: 1008px; */
+    width: auto;/* 166px;по макету, margin-left: 1008px; */
     display: block;
     /* для сетки 
     border: 1px solid black;*/
@@ -466,16 +468,28 @@ a:focus {
     background-image: url(../img/slider-item1.png);
     background-repeat: no-repeat;
     background-position: center center;
-    width: 1046px; /*увеличила на 1рх для удобства центрирования*/
+    width: 1046px; 
     height: 881px;
     z-index: -1;
     /* для сетки 
     border: 1px solid black;*/
-    /*В Эксплорере почему-то наложился на следующий блок...*/
     position: absolute;
     top: 0;
     left: 50%;
     margin-left: -523px;
+}
+
+.slider-background2 {
+    background-image: url(../img/slider-item2.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+   
+}
+
+.slider-background3 {
+    background-image: url(../img/slider-item3.png);
+    background-repeat: no-repeat;
+    background-position: center center;
 }
 
 .slider {
@@ -1146,9 +1160,11 @@ a:focus {
     display: inline-block;
 }
 
-.contacts .button {
+/*кнопка*/
+.feedback-popup {
     width: 252px;
     height: 44px;
+    line-height: 44px;
     margin: 0;
     margin-top: 20px;
     padding: 0;
@@ -1156,7 +1172,6 @@ a:focus {
         border: 1px solid black;*/
     border-radius: 22px;
     text-decoration: none;
-    vertical-align: middle; /*не работает*/
     display: block;
 }
 
@@ -1227,7 +1242,7 @@ a:focus {
     /*object-fit: contain;*/
     opacity: 0.8;
     border: 3px solid rgba(255, 255, 255, 0.5);
-    border-radius: 32px; /*ПРИШЛОСЬ СТАВИТЬ БОЛЬШЕ - не стыкуется с картикой до конца*/
+    border-radius: 32px; 
     margin-right: 11px;
 }
 
@@ -1364,7 +1379,7 @@ a:focus {
 
 .filters {
     display: flex;
-    flex-wrap: wrap; /*не чувствуются отступы между полями.... - ПОЧЕМУ?*/
+    flex-wrap: wrap; 
 }
 
 .filters fieldset {
@@ -1425,7 +1440,7 @@ a:focus {
 }
 
 .filter-price label {
-    margin-top: 10px; /*ПОЧЕМУ-то сдвинут наверх???*/
+    margin-top: 10px; 
 }
 
 .filter-price input {
@@ -1446,7 +1461,11 @@ a:focus {
     height: 57px;
     display: inline-flex;
     margin-left: 14px;
+    
 }
+
+
+
 
 .filter-fat div {
     width: 415px;
@@ -1465,7 +1484,10 @@ a:focus {
     width: 703px;
     height: 57px;
     display:inline-flex;
+    position:relative;
 }
+
+
 
 .filter-fillers div {
     width: 703px;
@@ -1481,57 +1503,62 @@ a:focus {
     justify-content: space-between;
 }
 
-/*НЕ ПОЛУЧАЕТСЯ СДЕЛАТЬ КРАСИВЫЕ ЗНАЧКИ*/
 
-.filter-fat-radio + label::before,
+.filter-fat label {
+    position: relative;
+}
+
 .filter-fat input[type="radio"] + label::before {
-    content: "";
+    content:  " ";
     position: absolute;
-    top: 9px;
-    left: -38px;
-    width: 22px;
-    height: 22px;
+    top: 0px;
+    left: -30px;
+    width: 26px;
+    height: 26px;
     background-image: url("../img/radio-off.svg");
     background-repeat: no-repeat;
     background-position: 0 0;
 }
 
-.filter-fat-radio + label::before,
+
 .filter-fat input[type="radio"]:checked + label::before {
     content: "";
     position: absolute;
-    top: 9px;
+    top: 0px;
     left: -38px;
-    width: 22px;
-    height: 22px;
+    width: 26px;
+    height: 26px;
     background-image: url("../img/radio-on.svg");
     background-repeat: no-repeat;
     background-position: 0 0;
 }
 
 /*НЕ ПОЛУЧАЕТСЯ СДЕЛАТЬ КРАСИВЫЕ ЗНАЧКИ*/
+.filter-fillers label {
+    position: relative;
+}
 
-.filter-fillers-checkbox + label::before,
-.filter-fillers input[type="checkbox"] + label::before {
+
+.filter-fillers-checkbox + label::before {
     content: "";
     position: absolute;
-    top: 9px;
+    top: 0px;
     left: -38px;
-    width: 24px;
-    height: 20px;
+    width: 26px;
+    height: 24px;
     background-image: url("../img/checkbox-off.svg");
     background-repeat: no-repeat;
     background-position: 0 0;
 }
-    
 
-.filter-fillers input[type="checkbox"]:checked + label::before {
+
+.filter-fillers-checkbox:checked + label::before {
     content: "";
     position: absolute;
-    top: 9px;
+    top: 0px;
     left: -38px;
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     background-image: url("../img/checkbox-on.svg");
     background-repeat: no-repeat;
     background-position: 0 0;
@@ -1550,8 +1577,8 @@ a:focus {
     border-radius: 18px;
     line-height: 33px;
     color: #ffffff;
-    margin-top: 20px; /*НЕ чувствует....*/
-    margin-left: 13px; /*НЕ чувствует....*/
+    margin-top: 20px; 
+    margin-left: 13px; 
 }
 
 
@@ -1569,9 +1596,23 @@ a:focus {
     background-image: url("../img/icon-left-small.svg"), url("../img/icon-right-small.svg");
     background-repeat: no-repeat, no-repeat;
     background-position: left center, right center;
-    transform: rotate(90deg), rotate(0deg); /* НЕ ПОВОРАЧИВАЕТ ПЕРВУЮ СТРЕЛКУ - КАК ИСПРАВИТЬ?*/
+    transform: rotate(90deg), rotate(0deg); 
     /* для сетки 
     border: 1px solid black;*/
+}
+
+/* НЕ ПОВОРАЧИВАЕТ ПЕРВУЮ СТРЕЛКУ */
+.pagination-list::before {
+    background-image: url("../img/icon-left-small.svg");
+    background-repeat: no-repeat;
+    background-position: left center;
+    transform: rotate(90deg);
+}
+
+.pagination-list::after {
+    background-image: url("../img/icon-left-small.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
 }
 
 .pagination-item {
@@ -1641,6 +1682,14 @@ a:focus {
     position: absolute;
     right: 0;
     margin-top: 4px;
+    display: none;
+}
+
+
+.login:hover .modal-login,
+.login:focus .modal-login {
+    display: block;
+    color: #323232
 }
 
 .modal-login input[type="email"],
@@ -1718,7 +1767,7 @@ a:focus {
     background-color: #f8f7f4;
     top: 50%;
     left: 50%;
-    /*display: none;*/
+    display: none;
     margin-top: -221px;
     margin-left: -239px;
     border-radius: 10px;
@@ -1806,4 +1855,45 @@ a:focus {
     background-color: transparent;
     border: 0;
     cursor: pointer;
+}
+
+.modal-show {
+    display: block;
+    animation: bounce 0.6s;
+}
+
+.modal-error {
+    animation: shake 0.6s;
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(-2000px);
+    }
+
+    70% {
+        transform: translateY(30px);
+    }
+
+    90% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+
+    10%, 30%, 50%, 70%, 90% {
+        transform: translateX(-10px);
+    }
+
+    20%, 40%, 60%, 80% {
+        transform: translateX(10px);
+    }
 }
